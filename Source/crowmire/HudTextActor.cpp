@@ -4,7 +4,9 @@
 #include "HudTextActor.h"
 
 
-// Sets default values
+/* 
+	Sets default values
+*/
 AHudTextActor::AHudTextActor()
 {
 	SceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootScene"));

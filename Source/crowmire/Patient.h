@@ -16,13 +16,12 @@ public:
 	void BeginPlay();
 
 	UFUNCTION(BlueprintCallable, Category = Puzzle)
-	uint8 GetKeyStitchIndex();
+		uint8 GetKeyStitchIndex();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = Interaction)
 		void OnStitchSelected(bool WasCorrect);
 	void OnStitchSelected_Implementation(bool WasCorrect);
 
-	void SetKeyStitchIndex(uint8 KeyStitchIndex);
 
 protected:
 
@@ -41,10 +40,6 @@ protected:
 		UStaticMeshComponent* Chest;
 
 	TMap<FString, UStaticMeshComponent**> Stitches;
-
-
-
-	
 
 private:
 	uint8 KeyStitchIndex;

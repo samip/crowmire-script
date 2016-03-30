@@ -1,5 +1,9 @@
 // Morrow Games 2015-2016
 
+/**
+ *	Used to render HUD text in 3D space because normal UMG widgets dont work Oculus
+ */
+
 #pragma once
 
 #include "GameFramework/Actor.h"

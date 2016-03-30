@@ -12,12 +12,6 @@ void AFocusableActor::BeginPlay()
 }
 
 
-void AFocusableActor::OnUseAction()
-{
-
-}
-
-
 void AFocusableActor::SetupInput()
 {
 	//
@@ -37,7 +31,7 @@ UCameraComponent* AFocusableActor::GetCameraComponent()
 
 	if (CameraComponents.Num() == 0)
 	{
-		return NULL;
+		return nullptr;
 	}
 
 	return CameraComponents[0];

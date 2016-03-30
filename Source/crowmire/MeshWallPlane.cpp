@@ -31,7 +31,7 @@ void AMeshWallPlane::InitializeArrays(UWorld* World)
 }
 
 /*
-	Remove all actors
+	Remove all actors of this class
 */
 void AMeshWallPlane::Cleanup()
 {

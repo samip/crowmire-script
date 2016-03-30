@@ -1,15 +1,6 @@
-
-
 #include "crowmire.h"
 #include "Inventory.h"
 
-Inventory::Inventory()
-{
-}
-
-Inventory::~Inventory()
-{
-}
 
 void Inventory::Add(APickableActor* Item)
 {

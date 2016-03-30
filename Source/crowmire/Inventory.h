@@ -13,16 +13,13 @@
 class CROWMIRE_API Inventory
 {
 public:
-	Inventory();
-	~Inventory();
-
 	void Add(APickableActor* Item);
 	void Remove(APickableActor* Item);
 
 	UFUNCTION()
 		TArray<APickableActor*> GetItems();
 
-	// used after loading game (purkkaa)
+	/* used after loading saved game */
 	UFUNCTION()
 		void SetItems(TArray<APickableActor*> Items);
 

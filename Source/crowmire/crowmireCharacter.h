@@ -42,22 +42,19 @@ public:
 	void GetUsableActor(FHitResult* Hit, FCollisionQueryParams* Params);
 
 	UFUNCTION(BlueprintCallable, Category = HUdActor)
-	void UpdateHudPosition(FVector Start, FVector Direction, FRotator CamRot);
+		void UpdateHudPosition(FVector Start, FVector Direction, FRotator CamRot);
 
 	UFUNCTION(BlueprintCallable, Category = HUdActor)
-	void ShowHudInfo(FString text);
+		void ShowHudInfo(FString text);
 
 	UFUNCTION(BlueprintCallable, Category = HUdActor)
-	void HideHudInfo();
-
-	
+		void HideHudInfo();
 
 	virtual void Tick(float DeltaSeconds) override;
 
 	/*
-	N‰‰ tulee poistumaan (turhaa toistoa, en vaa jaksa alkaa nyt miettim‰‰n miten vitussa ton inventory-luokan saa n‰kym‰‰n blueprinteiss‰)
+	Expose inventory methods for easier use in blueprints
 	*/
-
 	UFUNCTION(BlueprintCallable, Category = Inventory)
 		void AddItem(APickableActor* Item);
 

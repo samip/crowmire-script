@@ -8,23 +8,22 @@
 
 
 
-void AcrowmireController::SetFocus(AFocusableActor* actor)
+void AcrowmireController::SetFocus(AFocusableActor* Actor)
 {
-	print("Setting focus to " + actor->GetName());
+	print("Setting focus to " + Actor->GetName());
 	
-	if (actor->hasCamera())
+	if (Actor->hasCamera())
 	{
-		SetViewTarget(actor);
+		SetViewTarget(Actor);
 	}
 	else
 	{
-		print("no camera");
+		print("No camera");
 	}
 
-
-	actor->EnableInput(this);
-	actor->SetupInput();
-	FocusedActor = actor;
+	Actor->EnableInput(this);
+	Actor->SetupInput();
+	FocusedActor = Actor;
 }
 
 

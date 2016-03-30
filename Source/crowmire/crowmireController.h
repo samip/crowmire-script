@@ -15,7 +15,7 @@ class CROWMIRE_API AcrowmireController : public APlayerController
 	GENERATED_BODY()
 	
 public:
-	void SetFocus(AFocusableActor* actor);
+	void SetFocus(AFocusableActor* Actor);
 	void FocusOnCharacter();
 	
 private:

@@ -18,6 +18,7 @@ public:
 
 	bool CanBePicked();
 
+	/* Texture to be drawn in HUD when item has been picked */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 		UTexture2D* InventoryItem;
 

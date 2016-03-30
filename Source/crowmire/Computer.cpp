@@ -23,7 +23,7 @@ void AComputer::SetupInput()
 	InputComponent->BindAxis("MoveRight", this, &AComputer::Browse);
 }
 
-void AComputer::SetImageArray()
+void AComputer::InitializePictureArray()
 {
 	if (TargetPatient == nullptr)
 	{
@@ -54,7 +54,6 @@ void AComputer::SetImageArray()
 		XrayImages.Add(Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), NULL, *(TextureString))));
 		XrayKeyImages.Add(Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), NULL, *(TextureKeyString))));
 	}
-	ImagesSet = true;
 }
 
 void AComputer::BeginPlay()
@@ -68,10 +67,9 @@ void AComputer::Browse(float Value)
 	float Epsilon = 0.0005;
 	uint8 LastPictureIndex = XrayImages.Num() - 1;
 
-	// refactor: turha muuttuja
-	if (!ImagesSet)
+	if (!XrayKeyImages.Num() == 0)
 	{
-		SetImageArray();
+		InitializePictureArray();
 	}
 
 
@@ -109,17 +107,16 @@ void AComputer::Browse(float Value)
 
 	if (CurrentPictureIndex != KeyStitchIndex)
 	{
-		print("no key");
 		ShowPicture(XrayImages[CurrentPictureIndex]);
 	}
 	else
 	{
-		print("key");
 		ShowPicture(XrayKeyImages[CurrentPictureIndex]);
 	}
-	FTimerHandle TimerHandle;
+
+	FTimerHandle DelayTimerHandle;
 	InputEnabled = false;
-	GetWorldTimerManager().SetTimer(TimerHandle, this, &AComputer::TimerElapse, InputDelayInSeconds, false);
+	GetWorldTimerManager().SetTimer(DelayTimerHandle, this, &AComputer::TimerElapse, InputDelayInSeconds, false);
 }
 
 void AComputer::TimerElapse()

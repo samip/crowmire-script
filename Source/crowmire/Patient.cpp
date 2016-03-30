@@ -14,17 +14,20 @@ APatient::APatient() : AUsableActor()
 	StitchSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("StitchScene"));
 	StitchSceneComponent->SetRelativeLocation(FVector::ZeroVector);
 	StitchSceneComponent->AttachTo(RootComponent);
-	
 
+	FString StitchMeshFolder = "StaticMesh'/Game/Blueprints/XrayPuzzle/Stitches/";
 
+	/* 
+	Key = mesh name, found in StitchMeshFolder
+	Value = Mesh component that will use said mesh
+	*/
 	Stitches.Add("Hip", &Hip);
 	Stitches.Add("RightArm", &RightArm);
 	Stitches.Add("LeftArm", &LeftArm);
 	Stitches.Add("Chest", &Chest);
 
-	FString StitchMeshFolder = "StaticMesh'/Game/Blueprints/XrayPuzzle/Stitches/";
-
 	int i = 0;
+	// Add meshes to MeshComponents. Positioning etc. done in editor.
 	for (auto& Elem : Stitches)
 	{
 		FString Name = Elem.Key;
@@ -43,19 +46,16 @@ APatient::APatient() : AUsableActor()
 void APatient::BeginPlay()
 {
 	int32 StitchCount = Stitches.Num();
+	// "place" key in some of the stitches
 	KeyStitchIndex = FMath::RandRange(0, StitchCount - 1);
 }
-void APatient::SetKeyStitchIndex(uint8 KeyStitchIndex)
-{
-	KeyStitchIndex = KeyStitchIndex;
-}
-
 
 
 void APatient::OnStitchSelected_Implementation(bool WasCorrect)
 {
 	print("Missing patient OnStitchSelected BP");
 }
+
 
 uint8 APatient::GetKeyStitchIndex()
 {
