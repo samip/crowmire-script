@@ -121,13 +121,14 @@ void AcrowmireCharacter::Use()
 //Raycast
 void AcrowmireCharacter::GetUsableActor(FHitResult* Hit, FCollisionQueryParams* Params)
 {
+	float TraceLength = 150;
 	FVector CamLoc;
 	FRotator CamRot;
 	Controller->GetPlayerViewPoint(CamLoc, CamRot);
 
 	FVector Start = CamLoc;
 	FVector Direction = CamRot.Vector();
-	FVector End = Start + Direction * 150;
+	FVector End = Start + Direction * TraceLength;
 
 	AActor* RayhitActor = Rayhit.GetActor();
 	AUsableActor* usable;
